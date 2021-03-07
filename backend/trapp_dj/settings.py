@@ -25,7 +25,7 @@ SECRET_KEY = '1x0-8ov+lgp@@0@_*1!=s#(g^-qmq3z#ucb9lfoa8!claf#_n^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost' ,'127.0.0.1', '[::1]']
+ALLOWED_HOSTS = ['localhost' ,'127.0.0.1', '[::1]', '0.0.0.0']
 
 # Application definition
 
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'trapp_dj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'NAME': 'nataliafilipkiewicz',
         'USER': 'nataliafilipkiewicz',
         'PASSWORD': 'natalka',
