@@ -2,15 +2,18 @@ version: '3.7'
 
 services:
 
-  django:
-    build: ./backend
+  web:
+    container_name: web
+    build:
+        context: ./web
+        dockerfile: Dockerfile
     ports:
       - 8000:8000 # Expose Backend API Port
       - 3000:3000
       - 35729:35729
       - 5678:5678 # Expose Port for ptvsd debugger (https://testdriven.io/blog/django-debugging-vs-code/)
     volumes:
-      - ./backend:/app
+      - ./web:/usr/src/web
     # env_file: .env.dev
     command: python manage.py runserver 0.0.0.0:8000
     tty: true # Colorised Terminal Output
