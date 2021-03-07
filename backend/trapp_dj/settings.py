@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import platform
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -74,17 +75,32 @@ WSGI_APPLICATION = 'trapp_dj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'db',
-        'NAME': 'nataliafilipkiewicz',
-        'USER': 'nataliafilipkiewicz',
-        'PASSWORD': 'natalka',
-        'PORT': '5432',
-    }
-}
+if platform.system() == 'Linux' :
 
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'HOST': 'db',
+            'NAME': 'nataliafilipkiewicz',
+            'USER': 'nataliafilipkiewicz',
+            'PASSWORD': 'natalka',
+            'PORT': '5432',
+        }
+    }
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'HOST': 'localhost',
+            'NAME': 'nataliafilipkiewicz',
+            'USER': 'nataliafilipkiewicz',
+            'PASSWORD': 'natalka',
+            #'PORT': '5432',
+        }
+    }
+print ("aaaaaaaaaaaaaaaaaa")
+print (platform.system())
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

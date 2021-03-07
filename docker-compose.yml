@@ -11,7 +11,7 @@ services:
       - 5678:5678 # Expose Port for ptvsd debugger (https://testdriven.io/blog/django-debugging-vs-code/)
     volumes:
       - ./backend:/app
-    # env_file: .env
+    # env_file: .env.dev
     command: python manage.py runserver 0.0.0.0:8000
     tty: true # Colorised Terminal Output
 
@@ -27,6 +27,8 @@ services:
       - POSTGRES_USER=nataliafilipkiewicz
       - POSTGRES_PASSWORD=natalka
       - POSTGRES_DB=nataliafilipkiewicz
+      - POSTGRES_HOST_AUTH_METHOD=trust
+
 
     ports:
       - "5432:5432"
